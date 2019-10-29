@@ -26,15 +26,22 @@ public class Main {
 		} while (th.thread.isAlive() || th2.thread.isAlive() || th3.thread.isAlive());
 	*/
 		try {
-			th.thread.join(); //Wait until specified thread ends
+			
+			/*th.thread.join(); //Wait until specified thread ends
 			System.out.println("Child n1 joined");
 			
 			th2.thread.join();
 			System.out.println("Child n2 joined");
 			
 			th3.thread.join();
-			System.out.println("Child n3 joined");
-		} catch (InterruptedException e) {
+			System.out.println("Child n3 joined");*/
+			
+			//Every thread starts with priority level 5
+			th.thread.setPriority(Thread.MIN_PRIORITY);
+			System.out.println("Child n1 priority is " + th.thread.getPriority());
+
+			th2.thread.setPriority(Thread.NORM_PRIORITY);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
